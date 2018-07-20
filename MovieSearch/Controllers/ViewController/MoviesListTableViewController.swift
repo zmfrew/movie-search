@@ -49,7 +49,12 @@ class MoviesListTableViewController: UITableViewController, UISearchBarDelegate 
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "ToDetailView" {
+            guard let destinationVC = segue.destination as? MovieDetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
+            let movie = movies[indexPath.row]
+            destinationVC.movie = movie
+            destinationVC.title = movie.title
+        }
     }
 
 }
