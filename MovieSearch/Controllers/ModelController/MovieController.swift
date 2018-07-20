@@ -15,7 +15,7 @@ class MovieController {
     static let imageURL = URL(string: "http://image.tmdb.org/t/p/w500/")!
     
     // MARK: - Methods
-    static func retrieveMovies(_ searchText: String, completion: @escaping ([Movie]) -> Void) {
+    static func retrieveMovies(_ searchText: String, completion: @escaping (([Movie]?) -> Void)) {
         guard var components = URLComponents(url: MovieController.baseURL, resolvingAgainstBaseURL: true) else { completion([]) ; return }
         
         let apiQuery = URLQueryItem(name: "api_key", value: "c5c1f4910df19b60d4b5657cf2225704")
@@ -40,15 +40,10 @@ class MovieController {
             guard let data = data else { completion([]) ; return }
 
             do {
-                guard let topLevelDict = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : Any] else { completion([]) ; return }
-                guard let moviesDict = topLevelDict["results"] as? [[String: Any]] else { completion([]) ; return }
-                var movies: [Movie] = []
-                for movieDict in moviesDict {
-                    if let newMovie = Movie(dict: movieDict) {
-                        movies.append(newMovie)
-                    }
-                }
-                completion(movies)
+                let decoder = JSONDecoder()
+                let topLevelDict = try decoder.decode(TopLevelDictionary.self, from: data)
+                let movies = topLevelDict.results
+                (completion(movies))
             } catch {
                 print("Error occurred decoding JSON: \(error.localizedDescription).")
                 completion([])

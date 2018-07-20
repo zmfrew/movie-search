@@ -27,6 +27,7 @@ class MoviesListTableViewController: UITableViewController, UISearchBarDelegate 
         guard let searchText = searchBar.text, !searchText.isEmpty, searchText != " " else { return }
         self.resignFirstResponder()
         MovieController.retrieveMovies(searchText) { (movies) in
+            guard let movies = movies else { return }
             self.movies = movies
             DispatchQueue.main.async {
                 self.tableView.reloadData()
