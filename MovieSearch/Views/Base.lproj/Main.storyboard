@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies List Table View Controller-->
+        <!--Movies-->
         <scene sceneID="71D-oh-5np">
             <objects>
                 <tableViewController id="IHg-v9-Wf4" customClass="MoviesListTableViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,7 +66,7 @@
                                             <constraints>
                                                 <constraint firstItem="mz7-09-geU" firstAttribute="leading" secondItem="c6F-2h-ZV7" secondAttribute="leading" id="FgX-3a-ZCE"/>
                                                 <constraint firstItem="zLH-b9-fok" firstAttribute="leading" secondItem="c6F-2h-ZV7" secondAttribute="leading" id="Gje-aT-alV"/>
-                                                <constraint firstAttribute="trailing" secondItem="YHT-Yb-3w9" secondAttribute="trailing" id="dqw-uF-xQR"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YHT-Yb-3w9" secondAttribute="trailing" id="dqw-uF-xQR"/>
                                                 <constraint firstAttribute="trailing" secondItem="mz7-09-geU" secondAttribute="trailing" id="fUo-vA-cYv"/>
                                                 <constraint firstItem="YHT-Yb-3w9" firstAttribute="width" secondItem="mz7-09-geU" secondAttribute="height" multiplier="56:57" id="vVN-Fq-zXj"/>
                                                 <constraint firstAttribute="trailing" secondItem="zLH-b9-fok" secondAttribute="trailing" id="yfD-lq-9mK"/>
@@ -98,7 +98,7 @@
                             <outlet property="delegate" destination="IHg-v9-Wf4" id="dzc-jQ-8NB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="B0e-QK-ErI"/>
+                    <navigationItem key="navigationItem" title="Movies" id="B0e-QK-ErI"/>
                     <connections>
                         <outlet property="searchBar" destination="rXN-vq-Ycz" id="XZi-aK-gff"/>
                     </connections>
@@ -116,22 +116,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QZH-qX-Vev">
-                                <rect key="frame" x="20" y="443.5" width="335" height="203.5"/>
+                                <rect key="frame" x="20" y="495.5" width="335" height="151.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="(title)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MV-0H-ppq">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="142.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="90.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(rating)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJh-Q1-m2d">
-                                        <rect key="frame" x="0.0" y="152.5" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="100.5" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(description)" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwa-ip-EMg">
-                                        <rect key="frame" x="0.0" y="183" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="131" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -147,7 +147,7 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aav-hP-12b">
-                                <rect key="frame" x="80" y="84" width="215" height="339.5"/>
+                                <rect key="frame" x="80" y="136" width="215" height="339.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Aav-hP-12b" secondAttribute="height" multiplier="19:30" id="Zbn-yx-Gjk"/>
                                 </constraints>
@@ -182,9 +182,18 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SOn-05-f5p" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hae-cA-pP1">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hae-cA-pP1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -25,7 +25,7 @@ class MoviesListTableViewController: UITableViewController, UISearchBarDelegate 
     // MARK: - Methods
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty, searchText != " " else { return }
-        self.resignFirstResponder()
+        searchBar.resignFirstResponder()
         MovieController.retrieveMovies(searchText) { (movies) in
             guard let movies = movies else { return }
             self.movies = movies

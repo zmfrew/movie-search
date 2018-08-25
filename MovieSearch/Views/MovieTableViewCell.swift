@@ -29,7 +29,7 @@ class MovieTableViewCell: UITableViewCell {
         titleLabel.text = movie.title
         ratingLabel.text = "\(movie.rating)"
         descriptionLabel.text = movie.description
-        
+        movieImageView.image = nil
         MovieController.retrieveImageFor(movie: movie) { (image) in
             if let image = image {
                 DispatchQueue.main.async {
